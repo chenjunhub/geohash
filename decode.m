@@ -1,18 +1,18 @@
-function [lat,lot]=docode(geoh)      %½âÂë
-% ±àÂë³¤¶È    
+function [lat,lot]=docode(geoh)      %è§£ç 
+% ç¼–ç é•¿åº¦    
 Len=size(geoh,2);
-% Base32±àÂë    
+% Base32ç¼–ç     
 Base32= '0123456789bcdefghjkmnpqrstuvwxyz';
-% geohÎª´ı½âÎöµÄ±àÂë£¬ÊÇ×Ö·û´®
+% geohä¸ºå¾…è§£æçš„ç¼–ç ï¼Œæ˜¯å­—ç¬¦ä¸²
 
-%µ±Ç°¼ÆËãÎ»µÄÆæÅ¼ĞÔ
+%å½“å‰è®¡ç®—ä½çš„å¥‡å¶æ€§
 odd = true ;
-latitude=[-90,90];%Î³¶È
-longitude=[-180, 180];%¾­¶È
+latitude=[-90,90];%çº¬åº¦
+longitude=[-180, 180];%ç»åº¦
 for i=1:Len
    for j=1:32
             if(Base32(j)==geoh(i))
-                bits=j-1;    % ÕÒµ½µÚi¸ö×Ö·û¶ÔÓ¦µÄÊı
+                bits=j-1;    % æ‰¾åˆ°ç¬¬iä¸ªå­—ç¬¦å¯¹åº”çš„æ•°
                 break;
             end
     end
@@ -36,7 +36,7 @@ for i=1:Len
               bit=1;
           else
               bit=0;
-          end      % È¡³ö¶ÔÓ¦µÄÎ»
+          end      % å–å‡ºå¯¹åº”çš„ä½
             if odd
                 mid = (longitude(1) + longitude(2)) / 2;
                 if bit==0
